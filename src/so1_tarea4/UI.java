@@ -5,23 +5,37 @@
  */
 package so1_tarea4;
 import clases.Proceso;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JButton;
-import javax.swing.Timer;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author danpu
  */
 public class UI extends javax.swing.JFrame {
+    int x = 10, y = 4, tamanio = 75;
+    JButton[][] matriz = new JButton[x][y];
+    
     /**
      * Creates new form UI
      */
     public UI() {
         initComponents();
+        for(int i = 0; i < y; i++){
+            for(int j = 0; j < x; j++){
+                matriz[j][i] = new JButton();
+                matriz[j][i].setBounds(j*tamanio, i*tamanio, tamanio, tamanio);
+                matriz[j][i].setEnabled(false);
+                matriz[j][i].setBackground(Color.gray);
+                
+                jPanel1.add(matriz[j][i]);
+            }
+        }
     }
 
     /**
@@ -35,19 +49,35 @@ public class UI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(750, 300));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         jButton5.setText("Inicio");
@@ -57,6 +87,34 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Proceso 1");
+
+        jLabel2.setText("Proceso 2");
+
+        jLabel3.setText("Proceso 3");
+
+        jLabel4.setText("Proceso 4");
+
+        jLabel5.setText("1U");
+
+        jLabel6.setText("2U");
+
+        jLabel7.setText("3U");
+
+        jLabel8.setText("4U");
+
+        jLabel9.setText("5U");
+
+        jLabel10.setText("6U");
+
+        jLabel11.setText("7U");
+
+        jLabel12.setText("8U");
+
+        jLabel13.setText("9U");
+
+        jLabel14.setText("10U");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -64,53 +122,87 @@ public class UI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 743, Short.MAX_VALUE)
-                        .addComponent(jButton5)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 931, Short.MAX_VALUE)
+                        .addComponent(jButton5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel6)
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel7)
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel8)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel9)
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel10)
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel11)
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel12)
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel13)
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel14)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel2)
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel3)
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //BOTON DE INICIO
-        int tamMaximo =0;
-        int posicion = 0;
-        jPanel1.removeAll();
+        int tamMaximo = 0;
+        int posicion = 0;  
+        
+        limpiarLinea(0);
+        limpiarLinea(1);
+        limpiarLinea(2);
+        limpiarLinea(3);
         
         ArrayList<Proceso> procesos = new ArrayList<Proceso>();
-        JButton btnProceso1 = new JButton();
-        JButton btnProceso2 = new JButton();
-        JButton btnProceso3 = new JButton();
-        JButton btnProceso4 = new JButton();
-        
-        btnProceso1.setBounds(0, 0, 30, 30);
-        btnProceso2.setBounds(0, 60, 30, 30);
-        btnProceso3.setBounds(0, 120, 30, 30);
-        btnProceso4.setBounds(0, 180, 30, 30);
-        btnProceso1.setEnabled(false);
-        btnProceso2.setEnabled(false);
-        btnProceso3.setEnabled(false);
-        btnProceso4.setEnabled(false);
-        
-        jPanel1.add(btnProceso1);
-        jPanel1.add(btnProceso2);
-        jPanel1.add(btnProceso3);
-        jPanel1.add(btnProceso4);
-        
-        
-           
         Proceso p1 = new Proceso(0, 0);
         procesos.add(p1);
         Proceso p2 = new Proceso(0, 60);
@@ -119,99 +211,43 @@ public class UI extends javax.swing.JFrame {
         procesos.add(p3);
         Proceso p4 = new Proceso(0, 180);
         procesos.add(p4);
-        btnProceso1.setVisible(true);
-        btnProceso2.setVisible(true);
-        btnProceso3.setVisible(true);
-        btnProceso4.setVisible(true);
         
         Random random = new Random();
                 
-        while(tamMaximo < 600){
-            int tiempoProceso = random.nextInt(6 - 1) + 1;
+        while(tamMaximo < 10){
+            int tiempoProceso = random.nextInt(3) + 1;
             System.out.println(tiempoProceso);
             
-            int posicionActual = procesos.get(posicion).getPosicionX() + (tiempoProceso * 30);
-            procesos.get(posicion).setPosicionX(posicionActual);
-            tamMaximo = posicionActual;
+            int tiempoActual = procesos.get(posicion).getTiempoUsado() + tiempoProceso;
+            procesos.get(posicion).setTiempoUsado(tiempoActual);
+            tamMaximo = tiempoActual;
             
+            if(tamMaximo > 9){
+                try{
+                    limpiarLinea(posicion);
+                    matriz[9][posicion].setBackground(Color.green);
+                    jPanel1.paintImmediately(0, 0, 750, 300);
+                    TimeUnit.SECONDS.sleep(1);
+                    JOptionPane.showMessageDialog(null, "El proceso " + (posicion + 1) + " ha cumplido con mas de 10 unidades de tiempo.");
+                }catch(Exception e){
+                    
+                }
+            }else{
+                try{
+                    limpiarLinea(posicion);
+                    matriz[tamMaximo-1][posicion].setBackground(Color.red);
+                    jPanel1.paintImmediately(0, 0, 750, 300);
+                    TimeUnit.SECONDS.sleep(1);
+                }catch(Exception e){
+                    
+                }
+            }
             
-//            switch(posicion){
-//                case 0:
-//                    //Primero proceos
-//                    btnProceso1.setBounds(posicionActual, 0, 30, 30);
-//                    Timer t = new Timer(500, new ActionListener(){
-//                        @Override
-//                        public void actionPerformed(ActionEvent e){
-//                            jPanel1.repaint();
-//                        }
-//                    });
-//
-//                    t.setRepeats(false);
-//                    t.setDelay(500);
-//                    t.start();
-//                break;
-//     
-//                case 1:
-//                    //Segundo proceso
-//                    btnProceso2.setBounds(posicionActual, 60, 30, 30);
-//                    
-//                    Timer t2 = new Timer(500, new ActionListener(){
-//                        @Override
-//                        public void actionPerformed(ActionEvent e){
-//                            jPanel1.repaint();
-//                        }
-//                    });
-//
-//                    t2.setRepeats(false);
-//                    t2.setDelay(500);
-//                    t2.start();
-//                break;
-//                
-//                case 2:
-//                    //Tercer proceso
-//                    btnProceso3.setBounds(posicionActual, 120, 30, 30);
-//                    
-//                    Timer t3 = new Timer(500, new ActionListener(){
-//                        @Override
-//                        public void actionPerformed(ActionEvent e){
-//                            jPanel1.repaint();
-//                        }
-//                    });
-//
-//                    t3.setRepeats(false);
-//                    t3.setDelay(500);
-//                    t3.start();
-//                break;
-//                
-//                case 3:
-//                    //Cuarto proceso
-//                    btnProceso4.setBounds(posicionActual, 180, 30, 30);
-//                    
-//                    Timer t4 = new Timer(500, new ActionListener(){
-//                        @Override
-//                        public void actionPerformed(ActionEvent e){
-//                            jPanel1.repaint();
-//                        }
-//                    });
-//
-//                    t4.setRepeats(false);
-//                    t4.setDelay(500);
-//                    t4.start();
-//                break;
-//                
-//                default:
-//                break;
-//            }
-            
-            
-           
-
             posicion++;
             if(posicion > 3){
                 posicion = 0;
             }
         }
-        
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -250,8 +286,30 @@ public class UI extends javax.swing.JFrame {
         });
     }
 
+   private void limpiarLinea(int linea){
+       for(int i = 0; i < 10; i++){
+           matriz[i][linea].setBackground(Color.gray);
+       }
+       
+       jPanel1.repaint();
+   }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
